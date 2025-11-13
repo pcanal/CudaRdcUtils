@@ -1096,6 +1096,7 @@ function(cuda_rdc_target_link_libraries target)
         # and the current one is Shared.
         if(${_need_to_use_shared_runtime})
           set_target_properties(${target} PROPERTIES CUDA_RUNTIME_LIBRARY "Shared")
+          target_link_libraries(${target} PRIVATE CUDA::cudart)
         endif()
       endif()
     endif()
